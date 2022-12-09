@@ -37,7 +37,11 @@ export default function Index() {
 
       <ul>
         {posts?.map((item) => {
-          return <li key={item?.id}>{item?.title}</li>;
+          return (
+            <li key={item?.id}>
+              <Link to={`/posts/${item?.id}`}>{item?.title}</Link>
+            </li>
+          );
         })}
       </ul>
     </div>

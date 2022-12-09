@@ -7,6 +7,7 @@ const { createRequestHandler } = require("@remix-run/express");
 const BUILD_DIR = path.join(process.cwd(), "build");
 
 const app = express();
+app.use(express.json());
 
 app.use(compression());
 
@@ -41,8 +42,8 @@ app.all(
         mode: process.env.NODE_ENV,
       })
 );
-const port = process.env.PORT || 3000;
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);
 });
